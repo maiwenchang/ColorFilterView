@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <me.mai.colorFilter.ColorFilterView
+        android:id="@+id/mColorFilterView"
+        android:layout_width="400dp"
+        android:layout_height="200dp"
+        android:padding="15dp"
+        android:src="@drawable/lake"
+        app:layout_constraintDimensionRatio="960:600" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvMatrix_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ff0000"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="1\n0\n0\n0"
+            app:layout_constraintTop_toTopOf="@id/mColorFilterView" />
+
+        <TextView
+            android:id="@+id/tvMatrix_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="15dp"
+            android:textColor="#00ff00"
+            android:text="0\n1\n0\n0"
+            app:layout_constraintTop_toTopOf="@id/mColorFilterView" />
+
+        <TextView
+            android:id="@+id/tvMatrix_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="0\n0\n1\n0"
+            android:textColor="#0000ff"
+            app:layout_constraintTop_toTopOf="@id/mColorFilterView" />
+
+        <TextView
+            android:id="@+id/tvMatrix_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="0\n0\n0\n1"
+            app:layout_constraintTop_toTopOf="@id/mColorFilterView" />
+
+        <TextView
+            android:id="@+id/tvMatrix_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="0\n0\n0\n0"
+            android:textColor="#000000"
+            app:layout_constraintTop_toTopOf="@id/mColorFilterView" />
+    </LinearLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mColorFilterView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="修改红色" />
+
+                <android.support.v7.widget.AppCompatSeekBar
+                    android:id="@+id/mRedSeekBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:progress="50" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="修改绿色" />
+
+                <android.support.v7.widget.AppCompatSeekBar
+                    android:id="@+id/mGreenSeekBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:progress="50" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="修改蓝色" />
+
+                <android.support.v7.widget.AppCompatSeekBar
+                    android:id="@+id/mBlueSeekBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:progress="50" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="修改透明度" />
+
+                <android.support.v7.widget.AppCompatSeekBar
+                    android:id="@+id/mAlphaSeekBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:progress="50" />
+            </LinearLayout>
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="reset"
+                    android:text="重置" />
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/fblButtons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="setTemplate"
+                    android:text="胶片" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="setTemplate"
+                    android:text="黑白" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="setTemplate"
+                    android:text="复古" />
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/fblTextViews"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/f4f4f4"
+                app:flexDirection="row"
+                app:flexWrap="wrap"
+                app:justifyContent="space_evenly"
+                app:maxLine="5">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_tv"
+                    android:textColor="#ff0000"
+                    android:padding="10dp"
+                    android:text="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_tv"
+                    android:padding="10dp"
+                    android:textColor="#00ff00"
+                    android:text="0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_tv"
+                    android:padding="10dp"
+                    android:textColor="#0000ff"
+                    android:text="0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_tv"
+                    android:padding="10dp"
+                    android:text="0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_tv"
+                    android:padding="10dp"
+                    android:textColor="#000000"
+                    android:text="0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_tv"
+                    android:padding="10dp"
+                    android:textColor="#ff0000"
+                    android:text="0"
+                    app:layout_wrapBefore="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_tv"
+                    android:padding="10dp"
+                    android:textColor="#00ff00"
+                    android:text="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_tv"
+                    android:padding="10dp"
+                    android:textColor="#0000ff"
+                    android:text="0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_tv"
+                    android:padding="10dp"
+                    android:text="0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_tv"
+                    android:padding="10dp"
+                    android:textColor="#000000"
+                    android:text="0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_tv"
+                    android:padding="10dp"
+                    android:textColor="#ff0000"
+                    android:text="0"
+                    app:layout_wrapBefore="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_tv"
+                    android:padding="10dp"
+                    android:textColor="#00ff00"
+                    android:text="0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_tv"
+                    android:padding="10dp"
+                    android:textColor="#0000ff"
+                    android:text="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_tv"
+                    android:padding="10dp"
+                    android:text="0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_tv"
+                    android:padding="10dp"
+                    android:textColor="#000000"
+                    android:text="0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_tv"
+                    android:padding="10dp"
+                    android:textColor="#ff0000"
+                    android:text="0"
+                    app:layout_wrapBefore="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_tv"
+                    android:padding="10dp"
+                    android:textColor="#00ff00"
+                    android:text="0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_tv"
+                    android:padding="10dp"
+                    android:textColor="#0000ff"
+                    android:text="0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_tv"
+                    android:padding="10dp"
+                    android:text="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_tv"
+                    android:padding="10dp"
+                    android:textColor="#000000"
+                    android:text="0" />
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <android.support.v7.widget.AppCompatSeekBar
+                android:id="@+id/mMatrixSeekBar"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@color/f4f4f4"
+                android:progress="50" />
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.constraint.ConstraintLayout>
